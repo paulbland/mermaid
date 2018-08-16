@@ -16,6 +16,21 @@ export const drawRect = function (elem, rectData) {
   return rectElem
 }
 
+export const drawImage = function (elem, rectData, actorImage) {
+  const imgElem = elem.append('image')
+
+  imgElem.attr('xlink:href', actorImage)
+  imgElem.attr('x', rectData.x + 80)
+  imgElem.attr('y', rectData.y - 150)
+  imgElem.attr('width', '100px')
+
+  if (typeof rectData.class !== 'undefined') {
+    imgElem.attr('class', rectData.class)
+  }
+
+  return imgElem
+}
+
 export const drawText = function (elem, textData, width) {
   // Remove and ignore br:s
   const nText = textData.text.replace(/<br\/?>/ig, ' ')
@@ -61,7 +76,7 @@ let actorCnt = -1
  * @param pos The position if the actor in the liost of actors
  * @param description The text in the box
  */
-export const drawActor = function (elem, left, verticalPos, description, conf) {
+export const drawActor = function (elem, left, verticalPos, description, conf, key) {
   const center = left + (conf.width / 2)
   const g = elem.append('g')
   if (verticalPos === 0) {
@@ -86,7 +101,13 @@ export const drawActor = function (elem, left, verticalPos, description, conf) {
   rect.class = 'actor'
   rect.rx = 3
   rect.ry = 3
-  drawRect(g, rect)
+
+  if (conf.actorImages && conf.actorImages[key]) {
+    drawImage(g, rect, conf.actorImages[key])
+    rect.y = (rect.y - 55) // pull text up a bit // TO DO - remove magic number
+  } else {
+    drawRect(g, rect)
+  }
 
   _drawTextCandidateFunc(conf)(description, g,
     rect.x, rect.y, rect.width, rect.height, { 'class': 'actor' })
