@@ -90,6 +90,10 @@ export const addNote = function (actor, placement, message) {
   messages.push({ from: actors[0], to: actors[1], message: message, type: LINETYPE.NOTE, placement: placement })
 }
 
+export const addDivider = function (message) {
+  messages.push({message: message, type: LINETYPE.DIVIDER})
+}
+
 export const setTitle = function (titleText) {
   title = titleText
 }
@@ -112,6 +116,9 @@ export const apply = function (param) {
         break
       case 'addNote':
         addNote(param.actor, param.placement, param.text)
+        break
+      case 'addDivider':
+        addDivider(param.text)
         break
       case 'addMessage':
         addSignal(param.from, param.to, param.msg, param.signalType)
@@ -167,6 +174,7 @@ export default {
   ARROWTYPE,
   PLACEMENT,
   addNote,
+  addDivider,
   setTitle,
   apply
 }

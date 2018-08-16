@@ -73,3 +73,13 @@ text.actor {
   font-family: 'trebuchet ms', verdana, arial;
   font-size: 14px;
 }
+
+.divider-line {
+  stroke: $signalColor;
+  stroke-width: 1.5;
+  stroke-dasharray: '2 2';
+}
+
+.divider-text {
+  fill: $signalTextColor;
+}
