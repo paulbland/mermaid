@@ -1,0 +1,61 @@
+$mainBkg: #ffffff; 
+$secondBkg: #ffffde;
+$lineColor: #333333;
+$border1: #E2DDD6;  
+$border2: #aaaa33;
+$arrowheadColor: #333333;
+
+/* Flowchart variables */
+
+$nodeBkg: $mainBkg;
+$nodeBorder: #9370DB;
+$clusterBkg: $secondBkg;
+$clusterBorder: $border2;
+$defaultLinkColor: $lineColor;
+$titleColor: #333;
+$edgeLabelBackground: #e8e8e8;
+
+/* Sequence Diagram variables */
+
+$actorBorder: $border1;
+$actorBkg: $mainBkg;
+$actorTextColor: black;
+$actorLineColor: #a1a1a1;
+$signalColor: #B3B0A9;
+$signalTextColor: #333;
+$labelBoxBkgColor: $actorBkg;
+$labelBoxBorderColor: $actorBorder;
+$labelTextColor: $actorTextColor;
+$noteBorderColor: $border2;
+$noteBkgColor: #fff5ad;
+
+/* Gantt chart variables */
+
+$sectionBkgColor: rgba(102, 102, 255, 0.49);
+$altSectionBkgColor: white;
+$sectionBkgColor2: #fff400;
+$taskBorderColor: #534fbc;
+$taskBkgColor: #8a90dd;
+$taskTextLightColor: white;
+$taskTextColor: $taskTextLightColor;
+$taskTextDarkColor: black;
+$taskTextOutsideColor: $taskTextDarkColor;
+$activeTaskBorderColor: #534fbc;
+$activeTaskBkgColor: #bfc7ff;
+$gridColor: lightgrey;
+$doneTaskBkgColor: lightgrey;
+$doneTaskBorderColor: grey;
+$critBorderColor: #ff8888;
+$critBkgColor: red;
+$todayLineColor: red;
+
+@import '../mermaid';
+
+.actor-line {
+    stroke-dasharray: 6;
+    stroke-width: 1px;
+}
+
+* {
+    font-family: 'MarkForMCNrw';
+}

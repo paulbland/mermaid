@@ -33,7 +33,7 @@ import gitGraphParser from './diagrams/git/parser/gitGraph'
 import gitGraphAst from './diagrams/git/gitGraphAst'
 
 const themes = {}
-for (const themeName of ['default', 'forest', 'dark', 'neutral']) {
+for (const themeName of ['default', 'forest', 'dark', 'neutral', 'mastercard']) {
   themes[themeName] = require(`./themes/${themeName}/index.scss`)
 }
 
@@ -51,6 +51,7 @@ for (const themeName of ['default', 'forest', 'dark', 'neutral']) {
 const config = {
   theme: 'default',
   themeCSS: undefined,
+  backgroundColor: 'white',
 
   /**
    * logLevel , decides the amount of logging to be used.
@@ -379,6 +380,7 @@ const render = function (id, txt, cb, container) {
   style2.innerHTML = `#${id} {
     color: ${cs.color};
     font: ${cs.font};
+    background-color: ${config.backgroundColor};
   }`
   svg.insertBefore(style2, firstChild)
 
