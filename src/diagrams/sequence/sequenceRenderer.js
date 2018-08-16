@@ -273,7 +273,7 @@ export const drawActors = function (diagram, actors, actorKeys, verticalPos) {
     actors[key].height = conf.diagramMarginY
 
     // Draw the box with the attached line
-    svgDraw.drawActor(diagram, actors[key].x, verticalPos, actors[key].description, conf)
+    svgDraw.drawActor(diagram, actors[key].x, verticalPos, actors[key].description, conf, key)
     bounds.insert(actors[key].x, verticalPos, actors[key].x + conf.width, conf.height)
   }
 
