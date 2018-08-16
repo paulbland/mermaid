@@ -214,7 +214,18 @@ const drawMessage = function (elem, startx, stopx, verticalPos, msg, nodeIndex) 
     .attr('y', verticalPos - 7)
     .style('text-anchor', 'middle')
     .attr('class', 'messageText')
-    .text(msg.message)
+
+  // If <br /> is found, split element into tspan objects
+  if (msg.message.indexOf('<br/>') > -1) {
+    msg.message.split('<br/>').forEach(function (thisLine, index) {
+      textElem.append('tspan')
+        .attr('x', txtCenter)
+        .attr('y', verticalPos - 40 + (index * 20))
+        .text(thisLine)
+    })
+  } else {
+    textElem.text(msg.message)
+  }
 
   let textWidth = (textElem._groups || textElem)[0][0].getBBox().width
 
