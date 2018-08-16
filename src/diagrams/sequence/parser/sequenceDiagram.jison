@@ -45,6 +45,7 @@
 "activate"        { this.begin('ID'); return 'activate'; }
 "deactivate"      { this.begin('ID'); return 'deactivate'; }
 "title"           return 'title';
+"divider"         return 'divider';
 "sequenceDiagram" return 'SD';
 ","               return ',';
 ";"               return 'NL';
@@ -94,6 +95,7 @@ statement
 	| 'deactivate' actor 'NL' {$$={type: 'activeEnd', signalType: yy.LINETYPE.ACTIVE_END, actor: $2};}
 	| note_statement 'NL'
 	| title text2 'NL' {$$=[{type:'setTitle', text:$2}]}
+	| divider text2 'NL' {$$=[{type:'addDivider', text:$2}]}
 	| 'loop' restOfLine document end
 	{
 		$3.unshift({type: 'loopStart', loopText:$2, signalType: yy.LINETYPE.LOOP_START});

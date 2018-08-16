@@ -286,6 +286,33 @@ const drawMessage = function (elem, startx, stopx, verticalPos, msg, nodeIndex) 
   }
 }
 
+const drawDivider = function (elem, verticalPos, dividerText) {
+
+  let dividerMarginTop = 80
+  let dividerMarginBottom = 50
+  let textMarginBottom = 5
+
+  const box = bounds.getBounds()
+
+  const g = elem.append('g')
+  const line = g.append('line')
+  const text = g.append('text')
+
+  line.attr('x1', box.startx)
+  line.attr('y1', verticalPos + dividerMarginTop)
+  line.attr('x2', box.stopx)
+  line.attr('y2', verticalPos + dividerMarginTop)
+  // line.style('stroke-dasharray', ('3, 3'))
+  line.attr('class', 'divider-line')
+
+  text.text(dividerText)
+  text.attr('x', box.startx)
+  text.attr('y', verticalPos + dividerMarginTop - textMarginBottom)
+  text.attr('class', 'divider-text')
+
+  bounds.bumpVerticalPos(dividerMarginTop + dividerMarginBottom)
+}
+
 export const drawActors = function (diagram, actors, actorKeys, verticalPos) {
   // Draw the actors
   for (let i = 0; i < actorKeys.length; i++) {
@@ -453,6 +480,10 @@ export const draw = function (text, id) {
         loopData = bounds.endLoop()
         svgDraw.drawLoop(diagram, loopData, 'par', conf)
         bounds.bumpVerticalPos(conf.boxMargin)
+        break
+      case parser.yy.LINETYPE.DIVIDER:
+        const verticalPos = bounds.getVerticalPos()
+        drawDivider(diagram, verticalPos, msg.message)
         break
       default:
         try {
