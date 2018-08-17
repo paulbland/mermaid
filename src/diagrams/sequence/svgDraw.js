@@ -49,9 +49,17 @@ export const drawLabel = function (elem, txtObject) {
   polygon.attr('points', genPoints(txtObject.x, txtObject.y, 50, 20, 7))
   polygon.attr('class', 'labelBox')
 
+  // Save these positions for when I redraw polygon 
+  let oldX = txtObject.x
+  let oldY = txtObject.y
+
   txtObject.y = txtObject.y + txtObject.labelMargin
   txtObject.x = txtObject.x + 0.5 * txtObject.labelMargin
-  drawText(elem, txtObject)
+  var textElem = drawText(elem, txtObject)
+
+  // This extra little bit will set size of polygon to the size of the text inside
+  let textWidth = (textElem._groups || textElem)[0][0].getBBox().width
+  polygon.attr('points', genPoints(oldX, oldY, textWidth + 20, 20, 7))
 }
 
 let actorCnt = -1
@@ -139,7 +147,7 @@ export const drawLoop = function (elem, bounds, labelText, conf) {
   }
 
   let txt = getTextObj()
-  txt.text = labelText
+  txt.text = bounds.title // previously 'labelText'
   txt.x = bounds.startx
   txt.y = bounds.starty
   txt.labelMargin = 1.5 * 10 // This is the small box that says "loop"
@@ -147,14 +155,15 @@ export const drawLoop = function (elem, bounds, labelText, conf) {
 
   drawLabel(g, txt)
 
-  txt = getTextObj()
-  txt.text = '[ ' + bounds.title + ' ]'
-  txt.x = bounds.startx + (bounds.stopx - bounds.startx) / 2
-  txt.y = bounds.starty + 1.5 * conf.boxMargin
-  txt.anchor = 'middle'
-  txt.class = 'loopText'
+  // Commenting out section to draw label, as it has been moved elsewhere
+  // txt = getTextObj()
+  // txt.text = '[ ' + bounds.title + ' ]'
+  // txt.x = bounds.startx + (bounds.stopx - bounds.startx) / 2
+  // txt.y = bounds.starty + 1.5 * conf.boxMargin
+  // txt.anchor = 'middle'
+  // txt.class = 'loopText'
 
-  drawText(g, txt)
+  // drawText(g, txt)
 
   if (typeof bounds.sectionTitles !== 'undefined') {
     bounds.sectionTitles.forEach(function (item, idx) {
