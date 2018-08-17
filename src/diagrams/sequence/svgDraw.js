@@ -164,7 +164,7 @@ export const drawLoop = function (elem, bounds, labelText, conf) {
   txt.text = bounds.title // previously 'labelText'
   txt.x = bounds.startx
   txt.y = bounds.starty
-  txt.labelMargin = 17 //1.5 * 10 // This is the small box that says "loop"
+  txt.labelMargin = 17 // 1.5 * 10 // This is the small box that says "loop"
   txt.class = 'labelText' // Its size & position are fixed.
 
   drawLabel(g, txt)
