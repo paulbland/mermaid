@@ -157,15 +157,29 @@ export const drawLoop = function (elem, bounds, labelText, conf) {
       .attr('y2', stopy)
       .attr('class', 'loopLine')
   }
-  drawLoopLine(bounds.startx, bounds.starty, bounds.stopx, bounds.starty)
-  drawLoopLine(bounds.stopx, bounds.starty, bounds.stopx, bounds.stopy)
-  drawLoopLine(bounds.startx, bounds.stopy, bounds.stopx, bounds.stopy)
-  drawLoopLine(bounds.startx, bounds.starty, bounds.startx, bounds.stopy)
+  // Removing lines in favor of rect (below)
+  // drawLoopLine(bounds.startx, bounds.starty, bounds.stopx, bounds.starty)
+  // drawLoopLine(bounds.stopx, bounds.starty, bounds.stopx, bounds.stopy)
+  // drawLoopLine(bounds.startx, bounds.stopy, bounds.stopx, bounds.stopy)
+  // drawLoopLine(bounds.startx, bounds.starty, bounds.startx, bounds.stopy)
   if (typeof bounds.sections !== 'undefined') {
     bounds.sections.forEach(function (item) {
       drawLoopLine(bounds.startx, item, bounds.stopx, item).style('stroke-dasharray', '3, 3')
     })
   }
+
+  // Draw a rect instead of 4 lines (above)
+  drawRect(elem, {
+    x: bounds.startx,
+    y: bounds.starty,
+    fill: 'rgba(145,122,76,0.05)',
+    stroke: '#D3CFC8',
+    width: (bounds.stopx - bounds.startx),
+    height: (bounds.stopy - bounds.starty),
+    rx: 0,
+    ry: 0,
+    class: ''
+  })
 
   let txt = getTextObj()
   txt.text = bounds.title // previously 'labelText'
