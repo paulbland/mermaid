@@ -49,7 +49,7 @@ export const drawLabel = function (elem, txtObject) {
   polygon.attr('points', genPoints(txtObject.x, txtObject.y, 50, 20, 7))
   polygon.attr('class', 'labelBox')
 
-  // Save these positions for when I redraw polygon 
+  // Save these positions for when I redraw polygon
   let oldX = txtObject.x
   let oldY = txtObject.y
 
