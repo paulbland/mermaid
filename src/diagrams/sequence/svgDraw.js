@@ -59,7 +59,7 @@ export const drawLabel = function (elem, txtObject) {
 
   // This extra little bit will set size of polygon to the size of the text inside
   let textWidth = (textElem._groups || textElem)[0][0].getBBox().width
-  polygon.attr('points', genPoints(oldX, oldY, textWidth + 20, 20, 7))
+  polygon.attr('points', genPoints(oldX, oldY, textWidth + 40, 25, 25))
 }
 
 let actorCnt = -1
@@ -164,7 +164,7 @@ export const drawLoop = function (elem, bounds, labelText, conf) {
   txt.text = bounds.title // previously 'labelText'
   txt.x = bounds.startx
   txt.y = bounds.starty
-  txt.labelMargin = 1.5 * 10 // This is the small box that says "loop"
+  txt.labelMargin = 17 //1.5 * 10 // This is the small box that says "loop"
   txt.class = 'labelText' // Its size & position are fixed.
 
   drawLabel(g, txt)
