@@ -205,9 +205,9 @@ export const insertArrowHead = function (elem) {
 /**
  * Setup node number. The result is appended to the svg.
  */
-export const insertNodeNumber = function (elem) {
+export const insertSequenceNumber = function (elem) {
   elem.append('defs').append('marker')
-    .attr('id', 'nodenumber')
+    .attr('id', 'sequencenumber')
     .attr('refX', 15)
     .attr('refY', 15)
     .attr('markerWidth', 60)
@@ -345,7 +345,7 @@ export default {
   drawActivation,
   drawLoop,
   insertArrowHead,
-  insertNodeNumber,
+  insertSequenceNumber,
   insertArrowCrossHead,
   getTextObj,
   getNoteRect

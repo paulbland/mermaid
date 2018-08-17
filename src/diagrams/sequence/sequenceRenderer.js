@@ -275,13 +275,16 @@ const drawMessage = function (elem, startx, stopx, verticalPos, msg, nodeIndex) 
 
   // add node number
   if (conf.showSequenceNumbers) {
-    line.attr('marker-start', 'url(' + url + '#nodenumber)')
+    line.attr('marker-start', 'url(' + url + '#sequencenumber)')
     g.append('text')
-      .attr('x', startx - 4)
+      .attr('x', startx - 1)
       .attr('y', verticalPos + 5)
       .attr('font-family', 'sans-serif')
       .attr('font-size', '16px')
-      .attr('class', 'nodeNumber')
+      .attr('text-anchor', 'middle')
+      .attr('textLength', '16px')
+      .attr('lengthAdjust', '0')
+      .attr('class', 'sequenceNumber')
       .text(nodeIndex + 1)
   }
 }
@@ -383,7 +386,7 @@ export const draw = function (text, id) {
   // The arrow head definition is attached to the svg once
   svgDraw.insertArrowHead(diagram)
   svgDraw.insertArrowCrossHead(diagram)
-  svgDraw.insertNodeNumber(diagram)
+  svgDraw.insertSequenceNumber(diagram)
 
   function activeEnd (msg, verticalPos) {
     const activationData = bounds.endActivation(msg)
