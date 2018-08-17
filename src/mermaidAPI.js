@@ -161,10 +161,10 @@ const config = {
      */
     showSequenceNumbers: false,
 
-    /** 
+    /**
      * **rightAngles** - this will display arrows that start and begin at the same node as right angles, rather than a curve
      */
-    rightAngles: false,
+    rightAngles: false
   },
 
   /** ### gantt
