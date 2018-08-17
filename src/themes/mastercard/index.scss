@@ -2,7 +2,7 @@ $mainBkg: #ffffff;
 $secondBkg: #ffffde;
 $lineColor: #333333;
 $border1: #E2DDD6;  
-$border2: #B3B0A9;
+$border2: #B28C16;
 $arrowheadColor: #333333;
 
 /* Flowchart variables */
@@ -20,14 +20,14 @@ $edgeLabelBackground: #e8e8e8;
 $actorBorder: $border1;
 $actorBkg: $mainBkg;
 $actorTextColor: black;
-$actorLineColor: #a1a1a1;
-$signalColor: #B3B0A9;
+$actorLineColor: #C3C0B9;
+$signalColor: #74726E;
 $signalTextColor: #333;
 $labelBoxBkgColor: $actorBkg;
 $labelBoxBorderColor: $actorBorder;
 $labelTextColor: $actorTextColor;
 $noteBorderColor: $border2;
-$noteBkgColor: white;
+$noteBkgColor: #FFF4D2;
 $sequenceNumberColor: white;
 
 /* Gantt chart variables */
@@ -52,11 +52,22 @@ $todayLineColor: red;
 
 @import '../mermaid';
 
-.actor-line {
-    stroke-dasharray: 6;
-    stroke-width: 1px;
+.actor {
+    fill: #F8F7F5; /* actorFillColor?? */
+    stroke: #C3C0B9; /* actorBorderColor?? */
+    stroke-width: 2.5px;
 }
-
+.actor-line {
+    stroke-dasharray: 10 4; /* not in default css */
+    stroke-width: 2.5px;  /* not in default css */
+} 
+.messageLine0 {
+    stroke-width: 2.5; /* override rule in default */
+}
+.note {
+    stroke-width: 1;
+    box-shadow: 2px 2px 2px black;
+}
 * {
     font-family: 'MarkForMCNrw';
 }
