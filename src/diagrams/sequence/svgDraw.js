@@ -148,7 +148,7 @@ export const drawLoop = function (elem, bounds, labelText, conf) {
   }
 
   // Draw a rect instea of 4 lines (above)
-  var myRect = drawRect(elem, {
+  drawRect(elem, {
     x: bounds.startx,
     y: bounds.starty,
     fill: 'rgba(145,122,76,0.05)',
