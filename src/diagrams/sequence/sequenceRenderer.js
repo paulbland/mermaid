@@ -290,7 +290,6 @@ const drawMessage = function (elem, startx, stopx, verticalPos, msg, nodeIndex) 
 }
 
 const drawDivider = function (elem, verticalPos, dividerText) {
-
   let dividerMarginTop = 80
   let dividerMarginBottom = 50
   let textMarginBottom = 5
