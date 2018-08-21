@@ -205,8 +205,8 @@ const drawNote = function (elem, startx, verticalPos, msg, forceWidth) {
  */
 const drawMessage = function (elem, startx, stopx, verticalPos, msg) {
   const g = elem.append('g')
-  const txtCenter = startx + (stopx - startx) / 2
-  const lineHeight = 20;
+  // const txtCenter = startx + (stopx - startx) / 2
+  const lineHeight = 20
   const brs = /<br\s*\/?>/g
   const thisMsg = msg.message
 
@@ -218,14 +218,14 @@ const drawMessage = function (elem, startx, stopx, verticalPos, msg) {
 
   // If <br /> is found, split element into tspan objects
   if (thisMsg.search(brs) !== -1) {
-    var elemArr = thisMsg.split(brs);
+    var elemArr = thisMsg.split(brs)
     var totalTextHeight = (elemArr.length * lineHeight)
-    var textOffset = 10;
+    var textOffset = 10
 
     // Insert a the extra space required for a multi-line message
     bounds.bumpVerticalPos(totalTextHeight)
     verticalPos += totalTextHeight
-   
+
     elemArr.forEach(function (thisLine, index) {
       textElem.append('tspan')
         .attr('x', startx + 5) // txtCenter
