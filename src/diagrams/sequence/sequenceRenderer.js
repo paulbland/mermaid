@@ -264,23 +264,24 @@ const drawMessage = function (elem, startx, stopx, verticalPos, msg) {
 const drawDivider = function (elem, verticalPos, dividerText) {
   let dividerMarginTop = 80
   let dividerMarginBottom = 50
-  let textMarginBottom = 5
+  let textMarginBottom = 6
+  let textMarginleft = 7
+  let lineExtendBoundary = 15
 
   const box = bounds.getBounds()
-
   const g = elem.append('g')
   const line = g.append('line')
   const text = g.append('text')
 
-  line.attr('x1', box.startx)
+  line.attr('x1', box.startx - lineExtendBoundary)
   line.attr('y1', verticalPos + dividerMarginTop)
-  line.attr('x2', box.stopx)
+  line.attr('x2', box.stopx + lineExtendBoundary)
   line.attr('y2', verticalPos + dividerMarginTop)
   // line.style('stroke-dasharray', ('3, 3'))
   line.attr('class', 'divider-line')
 
   text.text(dividerText)
-  text.attr('x', box.startx)
+  text.attr('x', box.startx  + textMarginleft)
   text.attr('y', verticalPos + dividerMarginTop - textMarginBottom)
   text.attr('class', 'divider-text')
 
