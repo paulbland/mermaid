@@ -212,10 +212,10 @@ const drawMessage = function (elem, startx, stopx, verticalPos, msg) {
   let textAnchorStyle
 
   if (startx <= stopx) { // arrow goes left -> right (or loop)
-    textXPos = startx + 5
+    textXPos = (startx + 5)
     textAnchorStyle = 'start'
   } else { // arrow goes right <- left
-    textXPos = startx - 5
+    textXPos = (startx - 5)
     textAnchorStyle = 'end'
   }
 
