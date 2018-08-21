@@ -213,7 +213,7 @@ const drawMessage = function (elem, startx, stopx, verticalPos, msg) {
   const textElem = g.append('text') // text label for the x axis
     .attr('x', startx + 5) // txtCenter
     .attr('y', verticalPos - 7)
-    .style('text-anchor', 'left') // middle
+    .style('text-anchor', 'start') // middle
     .attr('class', 'messageText')
 
   // If <br /> is found, split element into tspan objects
@@ -234,6 +234,12 @@ const drawMessage = function (elem, startx, stopx, verticalPos, msg) {
     })
   } else {
     textElem.text(msg.message)
+  }
+
+  if (startx > stopx) {
+    // arrow goes rigth to left
+    textElem.style('text-anchor', 'end') // middle
+    textElem.attr('x', startx - 5) // txtCenter
   }
 
   let textWidth = (textElem._groups || textElem)[0][0].getBBox().width
