@@ -281,7 +281,7 @@ const drawDivider = function (elem, verticalPos, dividerText) {
   line.attr('class', 'divider-line')
 
   text.text(dividerText)
-  text.attr('x', box.startx  + textMarginleft)
+  text.attr('x', box.startx + textMarginleft)
   text.attr('y', verticalPos + dividerMarginTop - textMarginBottom)
   text.attr('class', 'divider-text')
 
