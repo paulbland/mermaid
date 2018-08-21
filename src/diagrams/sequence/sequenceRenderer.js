@@ -206,19 +206,30 @@ const drawNote = function (elem, startx, verticalPos, msg, forceWidth) {
 const drawMessage = function (elem, startx, stopx, verticalPos, msg) {
   const g = elem.append('g')
   const txtCenter = startx + (stopx - startx) / 2
+  const lineHeight = 20;
+  const brs = /<br\s*\/?>/g
+  const thisMsg = msg.message
 
   const textElem = g.append('text') // text label for the x axis
-    .attr('x', txtCenter)
+    .attr('x', startx + 5) // txtCenter
     .attr('y', verticalPos - 7)
-    .style('text-anchor', 'middle')
+    .style('text-anchor', 'left') // middle
     .attr('class', 'messageText')
 
   // If <br /> is found, split element into tspan objects
-  if (msg.message.indexOf('<br/>') > -1) {
-    msg.message.split('<br/>').forEach(function (thisLine, index) {
+  if (thisMsg.search(brs) !== -1) {
+    var elemArr = thisMsg.split(brs);
+    var totalTextHeight = (elemArr.length * lineHeight)
+    var textOffset = 10;
+
+    // Insert a the extra space required for a multi-line message
+    bounds.bumpVerticalPos(totalTextHeight)
+    verticalPos += totalTextHeight
+   
+    elemArr.forEach(function (thisLine, index) {
       textElem.append('tspan')
-        .attr('x', txtCenter)
-        .attr('y', verticalPos - 40 + (index * 20))
+        .attr('x', startx + 5) // txtCenter
+        .attr('y', verticalPos + textOffset - totalTextHeight + (index * lineHeight))
         .text(thisLine)
     })
   } else {
