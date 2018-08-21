@@ -208,38 +208,42 @@ const drawMessage = function (elem, startx, stopx, verticalPos, msg) {
   // const txtCenter = startx + (stopx - startx) / 2
   const lineHeight = 20
   const brs = /<br\s*\/?>/g
-  const thisMsg = msg.message
+  let textXPos
+  let textAnchorStyle
 
-  const textElem = g.append('text') // text label for the x axis
-    .attr('x', startx + 5) // txtCenter
-    .attr('y', verticalPos - 7)
-    .style('text-anchor', 'start') // middle
-    .attr('class', 'messageText')
+  if (startx <= stopx) {  // arrow goes left -> right (or loop)
+    textXPos = startx + 5
+    textAnchorStyle = 'start'
+  } else { // arrow goes right <- left
+    textXPos = startx - 5
+    textAnchorStyle = 'end'
+  }
 
+  // text label for the x axis
+  const textElem = g.append('text')
+  textElem.attr('x', textXPos) 
+  textElem.attr('y', verticalPos - 7)
+  textElem.attr('class', 'messageText')
+  textElem.style('text-anchor', textAnchorStyle)
+  
   // If <br /> is found, split element into tspan objects
-  if (thisMsg.search(brs) !== -1) {
-    var elemArr = thisMsg.split(brs)
-    var totalTextHeight = (elemArr.length * lineHeight)
-    var textOffset = 10
+  if (msg.message.search(brs) !== -1) {
+    let lines = msg.message.split(brs)
+    let totalTextHeight = (lines.length * lineHeight)
+    let textOffset = 10
 
     // Insert a the extra space required for a multi-line message
     bounds.bumpVerticalPos(totalTextHeight)
     verticalPos += totalTextHeight
 
-    elemArr.forEach(function (thisLine, index) {
+    lines.forEach(function (thisLine, index) {
       textElem.append('tspan')
-        .attr('x', startx + 5) // txtCenter
+        .attr('x', textXPos) // txtCenter
         .attr('y', verticalPos + textOffset - totalTextHeight + (index * lineHeight))
         .text(thisLine)
     })
   } else {
     textElem.text(msg.message)
-  }
-
-  if (startx > stopx) {
-    // arrow goes rigth to left
-    textElem.style('text-anchor', 'end') // middle
-    textElem.attr('x', startx - 5) // txtCenter
   }
 
   let textWidth = (textElem._groups || textElem)[0][0].getBBox().width
