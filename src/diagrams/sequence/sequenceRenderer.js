@@ -211,7 +211,7 @@ const drawMessage = function (elem, startx, stopx, verticalPos, msg) {
   let textXPos
   let textAnchorStyle
 
-  if (startx <= stopx) {  // arrow goes left -> right (or loop)
+  if (startx <= stopx) { // arrow goes left -> right (or loop)
     textXPos = startx + 5
     textAnchorStyle = 'start'
   } else { // arrow goes right <- left
@@ -221,11 +221,11 @@ const drawMessage = function (elem, startx, stopx, verticalPos, msg) {
 
   // text label for the x axis
   const textElem = g.append('text')
-  textElem.attr('x', textXPos) 
+  textElem.attr('x', textXPos)
   textElem.attr('y', verticalPos - 7)
   textElem.attr('class', 'messageText')
   textElem.style('text-anchor', textAnchorStyle)
-  
+
   // If <br /> is found, split element into tspan objects
   if (msg.message.search(brs) !== -1) {
     let lines = msg.message.split(brs)
