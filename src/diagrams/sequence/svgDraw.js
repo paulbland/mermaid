@@ -217,13 +217,13 @@ export const drawLoop = function (elem, bounds, labelText, conf) {
 export const insertArrowHead = function (elem) {
   elem.append('defs').append('marker')
     .attr('id', 'arrowhead')
-    .attr('refX', 5)
-    .attr('refY', 2)
-    .attr('markerWidth', 6)
-    .attr('markerHeight', 4)
+    .attr('refX', 7) // orig value: 5
+    .attr('refY', 4) // orig value: 2
+    .attr('markerWidth', 8) // orig value: 6
+    .attr('markerHeight', 8) // orig value: 4
     .attr('orient', 'auto')
     .append('path')
-    .attr('d', 'M 0,0 V 4 L6,2 Z') // this is actual shape for arrowhead
+    .attr('d', 'M 0,0 V 8 L 8,4 Z') // orig value: 'M 0,0 V 4 L6,2 Z'
 }
 /**
  * Setup node number. The result is appended to the svg.
