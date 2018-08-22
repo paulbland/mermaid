@@ -210,8 +210,8 @@ const drawMessage = function (elem, startx, stopx, verticalPos, msg) {
   const brs = /<br\s*\/?>/g
   let textXPos
   let textAnchorStyle
-  let xOffset = 8;
-  let yOffset = 8;
+  let xOffset = 8
+  let yOffset = 8
 
   if (startx <= stopx) { // arrow goes left -> right (or loop)
     textXPos = (startx + xOffset)
