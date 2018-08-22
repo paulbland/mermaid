@@ -176,7 +176,7 @@ export const insertArrowHead = function (elem) {
     .attr('refX', 7) // orig value: 5
     .attr('refY', 4) // orig value: 2
     .attr('markerWidth', 8) // orig value: 6
-    .attr('markerHeight', 8) // orig value: 4 
+    .attr('markerHeight', 8) // orig value: 4
     .attr('orient', 'auto')
     .append('path')
     .attr('d', 'M 0,0 V 8 L 8,4 Z') // orig value: 'M 0,0 V 4 L6,2 Z'
