@@ -90,4 +90,8 @@ text.actor {
 
 .divider-text {
   fill: $signalTextColor;
+  
+.activation {
+  fill: $activationBkgColor;
+  stroke: $activationBorderColor;
 }
