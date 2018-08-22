@@ -212,19 +212,21 @@ const drawMessage = function (elem, startx, stopx, verticalPos, msg, sequenceInd
   const brs = /<br\s*\/?>/g
   let textXPos
   let textAnchorStyle
+  let xOffset = 8;
+  let yOffset = 8;
 
   if (startx <= stopx) { // arrow goes left -> right (or loop)
-    textXPos = (startx + 5)
+    textXPos = (startx + xOffset)
     textAnchorStyle = 'start'
   } else { // arrow goes right <- left
-    textXPos = (startx - 5)
+    textXPos = (startx - xOffset)
     textAnchorStyle = 'end'
   }
 
   // text label for the x axis
   const textElem = g.append('text')
   textElem.attr('x', textXPos)
-  textElem.attr('y', verticalPos - 7)
+  textElem.attr('y', verticalPos - yOffset)
   textElem.attr('class', 'messageText')
   textElem.style('text-anchor', textAnchorStyle)
 
@@ -232,7 +234,7 @@ const drawMessage = function (elem, startx, stopx, verticalPos, msg, sequenceInd
   if (msg.message.search(brs) !== -1) {
     let lines = msg.message.split(brs)
     let totalTextHeight = (lines.length * lineHeight)
-    let textOffset = 10
+    let textOffset = (17 - yOffset)
 
     // Insert a the extra space required for a multi-line message
     bounds.bumpVerticalPos(totalTextHeight)
