@@ -20,9 +20,10 @@ export const drawImage = function (elem, rectData, actorImage) {
   const imgElem = elem.append('image')
 
   imgElem.attr('xlink:href', actorImage)
-  imgElem.attr('x', rectData.x + 80)
+  imgElem.attr('x', rectData.x + 50) // half image size  - hard coded to 100px
   imgElem.attr('y', rectData.y - 150)
   imgElem.attr('width', '100px')
+  imgElem.attr('height', '100px')
 
   if (typeof rectData.class !== 'undefined') {
     imgElem.attr('class', rectData.class)
