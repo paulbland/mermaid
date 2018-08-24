@@ -209,7 +209,9 @@ const drawMessage = function (elem, startx, stopx, verticalPos, msg, sequenceInd
   const g = elem.append('g')
   // const txtCenter = startx + (stopx - startx) / 2
   const lineHeight = 20
-  const brs = /<br\s*\/?>/g
+  const brTag = /<br\s*\/?>/g
+  const bTag = /<b>/g
+  const bCloseTag = /<\/b>/g
   let textXPos
   let textAnchorStyle
   let xOffset = 9
@@ -231,8 +233,8 @@ const drawMessage = function (elem, startx, stopx, verticalPos, msg, sequenceInd
   textElem.style('text-anchor', textAnchorStyle)
 
   // If <br /> is found, split element into tspan objects
-  if (msg.message.search(brs) !== -1) {
-    let lines = msg.message.split(brs)
+  if (msg.message.search(brTag) !== -1) {
+    let lines = msg.message.split(brTag)
     let totalTextHeight = (lines.length * lineHeight)
     let textOffset = (17 - yOffset)
 
@@ -241,10 +243,15 @@ const drawMessage = function (elem, startx, stopx, verticalPos, msg, sequenceInd
     verticalPos += totalTextHeight
 
     lines.forEach(function (thisLine, index) {
-      textElem.append('tspan')
-        .attr('x', textXPos) // txtCenter
-        .attr('y', verticalPos + textOffset - totalTextHeight + (index * lineHeight))
-        .text(thisLine)
+      let tSpan = textElem.append('tspan')
+      tSpan.attr('x', textXPos)
+      tSpan.attr('y', verticalPos + textOffset - totalTextHeight + (index * lineHeight))
+      if (thisLine.search(bTag) === 0) { // Special syntax - If line begins with a <b> tag, entire line will be bolded
+        thisLine = thisLine.replace(bTag, '')
+        thisLine = thisLine.replace(bCloseTag, '')
+        tSpan.attr('font-weight', 'bold')
+      }
+      tSpan.text(thisLine)
     })
   } else {
     textElem.text(msg.message)
