@@ -413,31 +413,31 @@ myActorImgs['consumer'] = `<svg width=\"100\" height=\"100\" viewbox="0 0 200 20
 </g>
 </svg>`;
 
-myActorImgs['wallet'] = `<svg width=\"100\" height=\"100\" viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\">
+myActorImgs['wallet'] = `<svg width=\"120\" height=\"100\" viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\">
   <g fill=\"white\" stroke=\"red\" stroke-width=\"5\">
     <circle cx=\"40\" cy=\"40\" r=\"25\" />
   </g>
 </svg>`;
 
-myActorImgs['app_server'] = `<svg width=\"100\" height=\"100\" viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\">
+myActorImgs['app_server'] = `<svg width=\"120\" height=\"100\" viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\">
 <g fill=\"white\" stroke=\"green\" stroke-width=\"5\">
   <circle cx=\"40\" cy=\"40\" r=\"25\" />
 </g>
 </svg>`;
 
-myActorImgs['masterpass_qr'] = `<svg width=\"100\" height=\"100\" viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\">
+myActorImgs['masterpass_qr'] = `<svg width=\"120\" height=\"100\" viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\">
 <g fill=\"white\" stroke=\"blue\" stroke-width=\"5\">
   <circle cx=\"40\" cy=\"40\" r=\"25\" />
 </g>
 </svg>`;
 
-myActorImgs['rec_inst_server'] = `<svg width=\"100\" height=\"100\" viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\">
+myActorImgs['rec_inst_server'] = `<svg width=\"120\" height=\"100\" viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\">
 <g fill=\"white\" stroke=\"orange\" stroke-width=\"5\">
   <circle cx=\"40\" cy=\"40\" r=\"25\" />
 </g>
 </svg>`;
 
-myActorImgs['merchant'] = `<svg width=\"100\" height=\"100\" viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\">
+myActorImgs['merchant'] = `<svg width=\"120\" height=\"100\" viewBox=\"0 0 100 100\" xmlns=\"http://www.w3.org/2000/svg\">
 <g fill=\"white\" stroke=\"purple\" stroke-width=\"5\">
   <circle cx=\"40\" cy=\"40\" r=\"25\" />
 </g>
