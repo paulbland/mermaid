@@ -3,6 +3,11 @@
   fill: $actorBkg;
 }
 
+.actor-image {
+  fill: $actorBkg;
+  stroke-width: 0; 
+}
+
 text.actor {
   fill: $actorTextColor;
   stroke: none;
