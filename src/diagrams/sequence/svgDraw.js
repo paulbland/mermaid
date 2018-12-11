@@ -34,7 +34,7 @@ export const drawImage = function (elem, rectData, actorImage) {
 
 export const drawImageSVG = function (elem, rectData, imageKey) {
   const imgElem = elem.append('g')
-  imgElem.attr('transform', 'translate('+(rectData.x + 50)+', '+(rectData.y - 150)+')');
+  imgElem.attr('transform', 'translate('+(rectData.x + 62)+', '+(rectData.y + 10)+')');
   imgElem.html(myActorImgs[imageKey]);
   return imgElem
 }
@@ -112,8 +112,11 @@ export const drawActor = function (elem, left, verticalPos, description, conf, k
 
   if (conf.actorImages && conf.actorImages[key]) {
     // drawImage(g, rect, conf.actorImages[key])
+    rect.stroke = 0;
+
+    drawRect(g, rect)
     drawImageSVG(g, rect, conf.actorImages[key])
-    rect.y = (rect.y - 55) // pull text up a bit // TO DO - remove magic number
+    rect.y = (rect.y + 40) // pull text up a bit // TO DO - remove magic number
   } else {
     drawRect(g, rect)
   }
@@ -345,7 +348,7 @@ export default {
 var myActorImgs = [];
 myActorImgs['mastercard_logo'] = `<?xml version="1.0" encoding="UTF-8"?>
 <!-- Created with Inkscape (http://www.inkscape.org/) -->
-<svg width="100" height="100" viewbox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+<svg width="80" height="80" viewbox="0 0 200 200" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
  <metadata>
   <rdf:RDF>
    <cc:Work rdf:about="">
@@ -378,7 +381,7 @@ myActorImgs['mastercard_logo'] = `<?xml version="1.0" encoding="UTF-8"?>
 myActorImgs['consumer'] = `<?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-  width="100" height="100" viewbox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+  width="80" height="80" viewbox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
 <style type="text/css">
 	.st0{display:none;}
 	.st1{display:inline;}
@@ -435,7 +438,7 @@ myActorImgs['consumer'] = `<?xml version="1.0" encoding="utf-8"?>
 myActorImgs['smartphone'] = `<?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-  width="100" height="100" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+  width="80" height="80" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
 <style type="text/css">
 	.st0{display:none;}
 	.st1{display:inline;}
@@ -498,7 +501,7 @@ myActorImgs['smartphone'] = `<?xml version="1.0" encoding="utf-8"?>
 myActorImgs['server'] = `<?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	width="100" height="100" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+	width="80" height="80" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
 <style type="text/css">
 	.st0{display:none;}
 	.st1{display:inline;fill:#C3C0B9;}
@@ -581,7 +584,7 @@ myActorImgs['server'] = `<?xml version="1.0" encoding="utf-8"?>
 myActorImgs['merchant'] = `<?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-  width="100" height="100" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+  width="80" height="80" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
 <style type="text/css">
 	.st0{display:none;}
 	.st1{display:inline;}
@@ -669,7 +672,7 @@ myActorImgs['merchant'] = `<?xml version="1.0" encoding="utf-8"?>
 myActorImgs['bank'] = `<?xml version="1.0" encoding="utf-8"?>
 <!-- Generator: Adobe Illustrator 19.0.0, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-	 width="100" height="100" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+	 width="80" height="80" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
 <style type="text/css">
 	.st0{display:none;}
 	.st1{display:inline;}
