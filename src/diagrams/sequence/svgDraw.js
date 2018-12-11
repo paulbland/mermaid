@@ -112,8 +112,7 @@ export const drawActor = function (elem, left, verticalPos, description, conf, k
 
   if (conf.actorImages && conf.actorImages[key]) {
     // drawImage(g, rect, conf.actorImages[key])
-    rect.stroke = 0;
-
+    rect.class = 'actor-image';
     drawRect(g, rect)
     drawImageSVG(g, rect, conf.actorImages[key])
     rect.y = (rect.y + 40) // pull text up a bit // TO DO - remove magic number
