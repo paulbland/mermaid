@@ -743,4 +743,3 @@ myActorImgs['bank'] = `<?xml version="1.0" encoding="utf-8"?>
   </g>
 </g>
 </svg>`
-
