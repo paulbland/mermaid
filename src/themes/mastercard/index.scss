@@ -1,14 +1,14 @@
-$mainBkg: #ffffff; 
+$mainBkg: #F8F7F5;  // #ffffff; 
 $secondBkg: #ffffde;
-$lineColor: #333333;
+$lineColor: #74726E; // #333333;
 $border1: #E2DDD6;  
 $border2: #B28C16;
-$arrowheadColor: #333333;
+$arrowheadColor: #74726E; //  #333333;
 
 /* Flowchart variables */
 
 $nodeBkg: $mainBkg;
-$nodeBorder: #9370DB;
+$nodeBorder: #74726E; // #9370DB;
 $clusterBkg: $secondBkg;
 $clusterBorder: $border2;
 $defaultLinkColor: $lineColor;
