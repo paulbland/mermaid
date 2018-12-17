@@ -165,10 +165,10 @@ export const addEdges = function (edges, g) {
           }
           break
         case 'dotted':
-          style = 'stroke: #333; fill:none;stroke-width:2px;stroke-dasharray:3;'
+          style = 'stroke: #74726E; fill:none;stroke-width:2px;stroke-dasharray:3;' // stroke: #333
           break
         case 'thick':
-          style = 'stroke: #333; stroke-width: 3.5px;fill:none'
+          style = 'stroke: #74726E; stroke-width: 3.5px;fill:none' // stroke: #333
           break
       }
     }
@@ -429,7 +429,7 @@ export const draw = function (text, id) {
       const cluster = d3.select(clusterEl[0])
       const te = cluster.append('text')
       te.attr('x', xPos + width / 2)
-      te.attr('y', yPos + 14)
+      te.attr('y', yPos + 24) // existing mermaid magic number changed from 14 to 24 - pbland
       te.attr('fill', 'black')
       te.attr('stroke', 'none')
       te.attr('id', id + 'Text')
