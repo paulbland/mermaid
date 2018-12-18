@@ -203,8 +203,8 @@ export const addEdges = function (edges, g) {
       }
     }
     // pbland - hide empty labels
-    if (! edge.text || edge.text === '') {
-      edgeData.label = '';
+    if (!edge.text || edge.text === '') {
+      edgeData.label = ''
     }
     // Add the edge to the graph
     g.setEdge(edge.start, edge.end, edgeData, cnt)
